@@ -9,3 +9,7 @@ dist
 .DS_Store
 .fleet
 .idea
+/test-results/
+/playwright-report/
+/playwright/.cache/
+tests-output
