@@ -40,3 +40,8 @@ npm run preview
 ```
 
 Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+
+
+## credits ui
+
+https://dribbble.com/shots/14139155-Point-of-Sale-System-Design
