@@ -13,6 +13,8 @@
     <nuxt-link to="/about">About</nuxt-link>
     <hr />
     <button>test</button>
+    <hr>
+    <nuxt-link to="/product/"> product</nuxt-link>
   </div>
 </template>
 
