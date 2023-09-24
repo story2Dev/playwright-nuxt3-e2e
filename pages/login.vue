@@ -5,7 +5,9 @@
       <UInput v-model="state.email" placeholder="Email" />
       <UInput v-model="state.password" type="password" placeholder="Password" />
       <article>
-        <UButton :loading="state.isLoading" @click.prevent="login">Submit</UButton>
+        <UButton :loading="state.isLoading" @click.prevent="login"
+          >Submit</UButton
+        >
       </article>
     </section>
   </div>
@@ -13,6 +15,7 @@
 
 <script setup lang="ts">
 const auth = useAuth();
+const toast = useToast();
 const state = reactive({
   email: "",
   password: "",
@@ -21,10 +24,22 @@ const state = reactive({
 
 const login = async () => {
   state.isLoading = true;
-  try { 
-    await auth.login(state.email, state.password);
+  try {
+    const req = await auth.login(state.email, state.password);
+    if (req) {
+      navigateTo("/");
+    }else{
+      toast.add({
+        title: "Fail",
+        description: "Email or password is incorrect",
+      });
+    }
+
   } catch (error) {
-    console.log(error);
+    toast.add({
+      title: "Fail",
+      description: "Email or password is incorrect",
+    });
   } finally {
     state.isLoading = false;
   }

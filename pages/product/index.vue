@@ -9,6 +9,19 @@
   </div>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+const query = gql`
+  query getProducts($limit: Int!) {
+    products(limit: $limit) {
+      id
+      name
+      price
+    }
+  }
+`;
+const variables = { limit: 5 };
+const { data, error } = await useAsyncQuery(query, variables);
+console.log({ data, error });
+</script>
 
 <style scoped></style>
